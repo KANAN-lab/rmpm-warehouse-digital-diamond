@@ -158,7 +158,7 @@ Dokumen ini dihasilkan secara otomatis oleh `checker_agent.py` untuk mengaudit t
 """
     
     COVERAGE_FILE.write_text(matrix_content, encoding="utf-8")
-    print(f"[✓] Laporan coverage berhasil ditulis ke: {COVERAGE_FILE}")
+    print(f"[OK] Laporan coverage berhasil ditulis ke: {COVERAGE_FILE}")
 
 def main():
     print("=====================================================")

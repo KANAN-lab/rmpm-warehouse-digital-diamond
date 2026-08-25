@@ -5,39 +5,39 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 0: SPECIFICATION & ARCHITECTURE DOCUMENTATION
-- [ ] 0.1 Buat direktori `/docs/` di dalam root project.
-- [ ] 0.2 Buat file `docs/01_SYSTEM_ARCHITECTURE.md` (Spesifikasi arsitektur modular monolith & layer visualisasi 3D).
-- [ ] 0.3 Buat file `docs/02_MASTER_DATA_SPEC.md` (Spesifikasi 5 kelompok master data).
-- [ ] 0.4 Buat file `docs/03_LOCATION_HIERARCHY.md` (Aturan hirarki lokasi dinamis).
-- [ ] 0.5 Buat file `docs/04_INVENTORY_MODEL.md` (Spesifikasi entitas stok, Material, Batch, Pallet, MID).
-- [ ] 0.6 Buat file `docs/05_TRANSACTION_MODEL.md` (Spesifikasi ledger transaksi append-only 16 jenis).
-- [ ] 0.7 Buat file `docs/06_BLIND_CYCLE_COUNT_SPEC.md` (Spesifikasi Blind SO, screen restrictions, snapshot & recount).
-- [ ] 0.8 Buat file `docs/07_PDA_WORKFLOW.md` (Spesifikasi UI PDA, mode scan/manual & queue offline).
-- [ ] 0.9 Buat file `docs/08_3D_DIGITAL_TWIN_SPEC.md` (Spesifikasi Three.js & database entity mapping 1-to-1).
-- [ ] 0.10 Buat file `docs/09_3D_LAYOUT_EDITOR_SPEC.md` (Spesifikasi 3D Designer, gizmo transform & versioning layout).
-- [ ] 0.11 Buat file `docs/10_PICKING_SPEC.md` (Spesifikasi strategi alokasi picking FIFO/FEFO & task execution).
-- [ ] 0.12 Buat file `docs/11_BATCHING_SPEC.md` (Spesifikasi pembentukan batch material & asosiasi produksi).
-- [ ] 0.13 Buat file `docs/12_REPLENISHMENT_SPEC.md` (Spesifikasi pemicu min/max & alokasi replenishment).
-- [ ] 0.14 Buat file `docs/13_RECEIVING_PUTAWAY_SPEC.md` (Spesifikasi receiving PO/ASN, QC inspection & putaway rules).
-- [ ] 0.15 Buat file `docs/14_BIN_TO_BIN_SPEC.md` (Spesifikasi pergerakan bin-to-bin & validasi kapasitas).
-- [ ] 0.16 Buat file `docs/15_AGING_SPEC.md` (Spesifikasi kalkulasi umur material & dynamic aging buckets).
-- [ ] 0.17 Buat file `docs/16_EXCEPTION_MANAGEMENT.md` (Spesifikasi penanganan wrong location, missing, unexpected stock).
-- [ ] 0.18 Buat file `docs/17_TRACEABILITY_SPEC.md` (Spesifikasi graph pergerakan material & root cause matrix).
-- [ ] 0.19 Buat file `docs/18_REPORTING_KPI_SPEC.md` (Spesifikasi KPI operasional, formula akurasi & control tower).
-- [ ] 0.20 Buat file `docs/20_AUDIT_LOG_SPEC.md` (Spesifikasi audit logging & snapshot capture).
-- [ ] 0.21 Buat file `docs/19_ROLE_PERMISSION_SPEC.md` (Matriks RBAC & granular permission keys).
-- [ ] 0.22 Buat file `docs/21_API_SPEC.md` (Spesifikasi kontrak REST API lengkap).
-- [ ] 0.23 Buat file `docs/22_DATABASE_SCHEMA.md` (DDL SQL, skema ERD, constraint & indeks).
-- [ ] 0.24 Buat file `docs/23_EVENT_MODEL.md` (Katalog 16 domain events & skema payload).
-- [ ] 0.25 Buat file `docs/24_OFFLINE_SYNC_SPEC.md` (Spesifikasi sync queue PDA & resolusi `SYNC_CONFLICT`).
-- [ ] 0.26 Buat file `docs/25_SECURITY_SPEC.md` (Spesifikasi otentikasi JWT, session & device security).
-- [ ] 0.27 Buat file `docs/26_VALIDATION_RULES.md` (Matriks aturan validasi master data & transaksi).
-- [ ] 0.28 Buat file `docs/27_TEST_STRATEGY.md` (Rencana pengujian Unit, Integration, API, Offline & Performance).
-- [ ] 0.29 Buat file `docs/28_ACCEPTANCE_CRITERIA.md` (Skenario pengujian BDD Given/When/Then).
-- [ ] 0.30 Buat file `docs/29_DEPLOYMENT_SPEC.md` (Spesifikasi Docker build, envvars & CI/CD).
-- [ ] 0.31 Buat file `docs/30_GLOSSARY.md` (Kamus istilah WMS & Digital Twin).
-- [ ] 0.32 Buat file `README.md` & `CHANGELOG.md`.
-- [ ] 0.33 Buat file `REQUIREMENT_GAP_ANALYSIS.md`, `BUSINESS_DECISIONS.md`, dan `REQUIREMENT_COVERAGE_MATRIX.md`.
+- [x] 0.1 Buat direktori `/docs/` di dalam root project.
+- [x] 0.2 Buat file `docs/01_SYSTEM_ARCHITECTURE.md` (Spesifikasi arsitektur modular monolith & layer visualisasi 3D).
+- [x] 0.3 Buat file `docs/02_MASTER_DATA_SPEC.md` (Spesifikasi 5 kelompok master data).
+- [x] 0.4 Buat file `docs/03_LOCATION_HIERARCHY.md` (Aturan hirarki lokasi dinamis).
+- [x] 0.5 Buat file `docs/04_INVENTORY_MODEL.md` (Spesifikasi entitas stok, Material, Batch, Pallet, MID).
+- [x] 0.6 Buat file `docs/05_TRANSACTION_MODEL.md` (Spesifikasi ledger transaksi append-only 16 jenis).
+- [x] 0.7 Buat file `docs/06_BLIND_CYCLE_COUNT_SPEC.md` (Spesifikasi Blind SO, screen restrictions, snapshot & recount).
+- [x] 0.8 Buat file `docs/07_PDA_WORKFLOW.md` (Spesifikasi UI PDA, mode scan/manual & queue offline).
+- [x] 0.9 Buat file `docs/08_3D_DIGITAL_TWIN_SPEC.md` (Spesifikasi Three.js & database entity mapping 1-to-1).
+- [x] 0.10 Buat file `docs/09_3D_LAYOUT_EDITOR_SPEC.md` (Spesifikasi 3D Designer, gizmo transform & versioning layout).
+- [x] 0.11 Buat file `docs/10_PICKING_SPEC.md` (Spesifikasi strategi alokasi picking FIFO/FEFO & task execution).
+- [x] 0.12 Buat file `docs/11_BATCHING_SPEC.md` (Spesifikasi pembentukan batch material & asosiasi produksi).
+- [x] 0.13 Buat file `docs/12_REPLENISHMENT_SPEC.md` (Spesifikasi pemicu min/max & alokasi replenishment).
+- [x] 0.14 Buat file `docs/13_RECEIVING_PUTAWAY_SPEC.md` (Spesifikasi receiving PO/ASN, QC inspection & putaway rules).
+- [x] 0.15 Buat file `docs/14_BIN_TO_BIN_SPEC.md` (Spesifikasi pergerakan bin-to-bin & validasi kapasitas).
+- [x] 0.16 Buat file `docs/15_AGING_SPEC.md` (Spesifikasi kalkulasi umur material & dynamic aging buckets).
+- [x] 0.17 Buat file `docs/16_EXCEPTION_MANAGEMENT.md` (Spesifikasi penanganan wrong location, missing, unexpected stock).
+- [x] 0.18 Buat file `docs/17_TRACEABILITY_SPEC.md` (Spesifikasi graph pergerakan material & root cause matrix).
+- [x] 0.19 Buat file `docs/18_REPORTING_KPI_SPEC.md` (Spesifikasi KPI operasional, formula akurasi & control tower).
+- [x] 0.20 Buat file `docs/20_AUDIT_LOG_SPEC.md` (Spesifikasi audit logging & snapshot capture).
+- [x] 0.21 Buat file `docs/19_ROLE_PERMISSION_SPEC.md` (Matriks RBAC & granular permission keys).
+- [x] 0.22 Buat file `docs/21_API_SPEC.md` (Spesifikasi kontrak REST API lengkap).
+- [x] 0.23 Buat file `docs/22_DATABASE_SCHEMA.md` (DDL SQL, skema ERD, constraint & indeks).
+- [x] 0.24 Buat file `docs/23_EVENT_MODEL.md` (Katalog 16 domain events & skema payload).
+- [x] 0.25 Buat file `docs/24_OFFLINE_SYNC_SPEC.md` (Spesifikasi sync queue PDA & resolusi `SYNC_CONFLICT`).
+- [x] 0.26 Buat file `docs/25_SECURITY_SPEC.md` (Spesifikasi otentikasi JWT, session & device security).
+- [x] 0.27 Buat file `docs/26_VALIDATION_RULES.md` (Matriks aturan validasi master data & transaksi).
+- [x] 0.28 Buat file `docs/27_TEST_STRATEGY.md` (Rencana pengujian Unit, Integration, API, Offline & Performance).
+- [x] 0.29 Buat file `docs/28_ACCEPTANCE_CRITERIA.md` (Skenario pengujian BDD Given/When/Then).
+- [x] 0.30 Buat file `docs/29_DEPLOYMENT_SPEC.md` (Spesifikasi Docker build, envvars & CI/CD).
+- [x] 0.31 Buat file `docs/30_GLOSSARY.md` (Kamus istilah WMS & Digital Twin).
+- [x] 0.32 Buat file `README.md` & `CHANGELOG.md`.
+- [x] 0.33 Buat file `REQUIREMENT_GAP_ANALYSIS.md`, `BUSINESS_DECISIONS.md`, dan `REQUIREMENT_COVERAGE_MATRIX.md`.
 
 ---
 
