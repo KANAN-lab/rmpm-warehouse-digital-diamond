@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const receivingPutawayController_js_1 = require("../controllers/receivingPutawayController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/receive', auth_js_1.authenticateJwt, receivingPutawayController_js_1.receiveInbound);
+router.post('/qc-inspection', auth_js_1.authenticateJwt, receivingPutawayController_js_1.inspectQuality);
+router.get('/putaway-suggestion/:midCode', auth_js_1.authenticateJwt, receivingPutawayController_js_1.getPutawaySuggestion);
+router.post('/confirm-putaway', auth_js_1.authenticateJwt, receivingPutawayController_js_1.confirmPutaway);
+exports.default = router;

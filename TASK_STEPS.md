@@ -136,48 +136,48 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 12: BIN-TO-BIN MOVEMENT ENGINE
-- [ ] 12.1 Implementasi API & UI Bin-to-Bin Transfer.
-- [ ] 12.2 Buat validasi kompatibilitas material-lokasi & batas kapasitas bin tujuan.
-- [ ] 12.3 Catat transaksi `BIN_TO_BIN` lengkap dengan otorisasi operator & alasan perpindahan.
+- [x] 12.1 Implementasi API & UI Bin-to-Bin Transfer.
+- [x] 12.2 Buat validasi kompatibilitas material-lokasi & batas kapasitas bin tujuan.
+- [x] 12.3 Catat transaksi `BIN_TO_BIN` lengkap dengan otorisasi operator & alasan perpindahan.
 
 ---
 
 ## PHASE 13: RECEIVING & PUTAWAY WORKFLOW
-- [ ] 13.1 Buat modul verifikasi Inbound PO / ASN & pencatatan Receiving fisik di Inbound Dock.
-- [ ] 13.2 Buat modul Quality Control Inspection (Passing to `AVAILABLE` or Quarantine to `QUARANTINE`).
-- [ ] 13.3 Implementasi Putaway Suggestion Engine & eksekusi Putaway via PDA.
+- [x] 13.1 Buat modul verifikasi Inbound PO / ASN & pencatatan Receiving fisik di Inbound Dock.
+- [x] 13.2 Buat modul Quality Control Inspection (Passing to `AVAILABLE` or Quarantine to `QUARANTINE`).
+- [x] 13.3 Implementasi Putaway Suggestion Engine & eksekusi Putaway via PDA.
 
 ---
 
 ## PHASE 14: BATCHING MODULE
-- [ ] 14.1 Implementasi modul pembuatan Batch Material & asosiasi dengan Work Order Produksi.
-- [ ] 14.2 Buat tracking status batch material (Preparation, Mixed, Released to Production).
+- [x] 14.1 Implementasi modul pembuatan Batch Material & asosiasi dengan Work Order Produksi.
+- [x] 14.2 Buat tracking status batch material (Preparation, Mixed, Released to Production).
 
 ---
 
 ## PHASE 15: DYNAMIC AGING ENGINE
-- [ ] 15.1 Buat modul kalkulasi umur material berdasarkan tanggal penerimaan / pembuatan.
-- [ ] 15.2 Buat pengelompokan Dynamic Aging Buckets (0-30, 31-60, 61-90, 91-180, 180+ hari).
-- [ ] 15.3 Buat pemicu peringatan stok mendekati kedaluwarsa (*Near Expiry*) & *Dead Stock*.
+- [x] 15.1 Buat modul kalkulasi umur material berdasarkan tanggal penerimaan / pembuatan.
+- [x] 15.2 Buat pengelompokan Dynamic Aging Buckets (0-30, 31-60, 61-90, 91-180, 180+ hari).
+- [x] 15.3 Buat pemicu peringatan stok mendekati kedaluwarsa (*Near Expiry*) & *Dead Stock*.
 
 ---
 
 ## PHASE 16: EXCEPTION ENGINE & TRACEABILITY GRAPH
-- [ ] 16.1 Implementasi penanganan Exception: `WRONG_LOCATION`, `MISSING_PENDING_RECOUNT`, `UNEXPECTED_MATERIAL`, `DAMAGED_STOCK`.
-- [ ] 16.2 Implementasi Klasifikasi Wrong Location (Wrong Warehouse/Zone/Area/Lane/Line/Rack/Level/Bin).
-- [ ] 16.3 Implementasi Node Graph Traceability (Pergerakan fisik material dari awal hingga akhir beserta operator, timestamp, dan alasan).
+- [x] 16.1 Implementasi penanganan Exception: `WRONG_LOCATION`, `MISSING_PENDING_RECOUNT`, `UNEXPECTED_MATERIAL`, `DAMAGED_STOCK`.
+- [x] 16.2 Implementasi Klasifikasi Wrong Location (Wrong Warehouse/Zone/Area/Lane/Line/Rack/Level/Bin).
+- [x] 16.3 Implementasi Node Graph Traceability (Pergerakan fisik material dari awal hingga akhir beserta operator, timestamp, dan alasan).
 
 ---
 
 ## PHASE 17: CONTROL TOWER REPORTING, KPI & 3D HEATMAPS
-- [ ] 17.1 Buat Dashboard KPI Real-Time: Inventory Accuracy %, Location Accuracy %, Quantity Accuracy %, SO Completion %, Wrong Location %, Recount %.
-- [ ] 17.2 Implementasi 10 Visualisation Layers pada 3D canvas (Inventory, SO Progress, Aging, Capacity, Exceptions, dll).
-- [ ] 17.3 Implementasi Skema Warna Heatmap 3D (Green, Yellow, Orange, Red, Purple, Blue).
-- [ ] 17.4 Buat fitur 3D Click-Through & 3D Search (Search MID/Material $\rightarrow$ Fly camera & Highlight object).
+- [x] 17.1 Buat Dashboard KPI Real-Time: Inventory Accuracy %, Location Accuracy %, Quantity Accuracy %, SO Completion %, Wrong Location %, Recount %.
+- [x] 17.2 Implementasi 10 Visualisation Layers pada 3D canvas (Inventory, SO Progress, Aging, Capacity, Exceptions, dll).
+- [x] 17.3 Implementasi Skema Warna Heatmap 3D (Green, Yellow, Orange, Red, Purple, Blue).
+- [x] 17.4 Buat fitur 3D Click-Through & 3D Search (Search MID/Material $\rightarrow$ Fly camera & Highlight object).
 
 ---
 
 ## PHASE 18: SYSTEM OPTIMIZATION, AUDIT & DEPLOYMENT
-- [ ] 18.1 Jalankan skrip Audit Compliance `checker_agent.py` untuk menguji ketercakapan 100% requirement.
-- [ ] 18.2 Jalankan Load Testing & Optimasi Indeks Database untuk pencarian cepat.
-- [ ] 18.3 Siapkan Docker Compose / Kubernetes deployment spec & dokumentasikan panduan rilis produksi.
+- [x] 18.1 Jalankan skrip Audit Compliance `checker_agent.py` untuk menguji ketercakapan 100% requirement.
+- [x] 18.2 Jalankan Load Testing & Optimasi Indeks Database untuk pencarian cepat.
+- [x] 18.3 Siapkan Docker Compose / Kubernetes deployment spec & dokumentasikan panduan rilis produksi.

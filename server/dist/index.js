@@ -98,6 +98,11 @@ const layout3dRoutes_js_1 = __importDefault(require("./routes/layout3dRoutes.js"
 const designerRoutes_js_1 = __importDefault(require("./routes/designerRoutes.js"));
 const pickingRoutes_js_1 = __importDefault(require("./routes/pickingRoutes.js"));
 const replenishmentRoutes_js_1 = __importDefault(require("./routes/replenishmentRoutes.js"));
+const binToBinRoutes_js_1 = __importDefault(require("./routes/binToBinRoutes.js"));
+const receivingPutawayRoutes_js_1 = __importDefault(require("./routes/receivingPutawayRoutes.js"));
+const batchingRoutes_js_1 = __importDefault(require("./routes/batchingRoutes.js"));
+const agingRoutes_js_1 = __importDefault(require("./routes/agingRoutes.js"));
+const traceabilityRoutes_js_1 = __importDefault(require("./routes/traceabilityRoutes.js"));
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes_js_1.default);
 // Location Hierarchy Routes
@@ -118,6 +123,16 @@ app.use('/api/v1/3d/designer', designerRoutes_js_1.default);
 app.use('/api/v1/picking', pickingRoutes_js_1.default);
 // Replenishment Engine Routes
 app.use('/api/v1/replenishment', replenishmentRoutes_js_1.default);
+// Bin-to-Bin Movement Routes
+app.use('/api/v1/bin-to-bin', binToBinRoutes_js_1.default);
+// Inbound Receiving & Putaway Routes
+app.use('/api/v1/inbound', receivingPutawayRoutes_js_1.default);
+// Material Production Batching Routes
+app.use('/api/v1/batching', batchingRoutes_js_1.default);
+// Dynamic Aging Engine Routes
+app.use('/api/v1/aging', agingRoutes_js_1.default);
+// Traceability Node Graph & Exception Routes
+app.use('/api/v1/traceability', traceabilityRoutes_js_1.default);
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.create'), (req, res) => {
     (0, errorResponder_js_1.sendSuccessResponse)(req, res, {

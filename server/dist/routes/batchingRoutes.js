@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const batchingController_js_1 = require("../controllers/batchingController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/create', auth_js_1.authenticateJwt, batchingController_js_1.createBatch);
+router.post('/transition-status', auth_js_1.authenticateJwt, batchingController_js_1.updateBatchStatus);
+router.get('/batches', auth_js_1.authenticateJwt, batchingController_js_1.getBatches);
+exports.default = router;

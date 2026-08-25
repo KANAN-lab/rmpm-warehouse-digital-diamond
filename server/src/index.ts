@@ -104,6 +104,11 @@ import layout3dRoutes from './routes/layout3dRoutes.js';
 import designerRoutes from './routes/designerRoutes.js';
 import pickingRoutes from './routes/pickingRoutes.js';
 import replenishmentRoutes from './routes/replenishmentRoutes.js';
+import binToBinRoutes from './routes/binToBinRoutes.js';
+import receivingPutawayRoutes from './routes/receivingPutawayRoutes.js';
+import batchingRoutes from './routes/batchingRoutes.js';
+import agingRoutes from './routes/agingRoutes.js';
+import traceabilityRoutes from './routes/traceabilityRoutes.js';
 
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes);
@@ -134,6 +139,21 @@ app.use('/api/v1/picking', pickingRoutes);
 
 // Replenishment Engine Routes
 app.use('/api/v1/replenishment', replenishmentRoutes);
+
+// Bin-to-Bin Movement Routes
+app.use('/api/v1/bin-to-bin', binToBinRoutes);
+
+// Inbound Receiving & Putaway Routes
+app.use('/api/v1/inbound', receivingPutawayRoutes);
+
+// Material Production Batching Routes
+app.use('/api/v1/batching', batchingRoutes);
+
+// Dynamic Aging Engine Routes
+app.use('/api/v1/aging', agingRoutes);
+
+// Traceability Node Graph & Exception Routes
+app.use('/api/v1/traceability', traceabilityRoutes);
 
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', authenticateJwt, requirePermission('cycle_count.create'), (req: AuthenticatedRequest, res) => {
