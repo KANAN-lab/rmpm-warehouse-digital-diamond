@@ -129,9 +129,9 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 11: REPLENISHMENT MODULE
-- [ ] 11.1 Implementasi Engine Pemicu Replenishment (Berdasarkan batas Min/Max bin picking atau Demand Order).
-- [ ] 11.2 Buat pembuatan otomatis Replenishment Task dari Bulk Storage ke Picking Area.
-- [ ] 11.3 Buat UI PDA Konfirmasi Pemindahan Replenishment.
+- [x] 11.1 Implementasi Engine Pemicu Replenishment (Berdasarkan batas Min/Max bin picking atau Demand Order).
+- [x] 11.2 Buat pembuatan otomatis Replenishment Task dari Bulk Storage ke Picking Area.
+- [x] 11.3 Buat UI PDA Konfirmasi Pemindahan Replenishment.
 
 ---
 

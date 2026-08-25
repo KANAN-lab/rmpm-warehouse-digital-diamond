@@ -103,6 +103,7 @@ import syncRoutes from './routes/syncRoutes.js';
 import layout3dRoutes from './routes/layout3dRoutes.js';
 import designerRoutes from './routes/designerRoutes.js';
 import pickingRoutes from './routes/pickingRoutes.js';
+import replenishmentRoutes from './routes/replenishmentRoutes.js';
 
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes);
@@ -130,6 +131,9 @@ app.use('/api/v1/3d/designer', designerRoutes);
 
 // Picking Engine Routes
 app.use('/api/v1/picking', pickingRoutes);
+
+// Replenishment Engine Routes
+app.use('/api/v1/replenishment', replenishmentRoutes);
 
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', authenticateJwt, requirePermission('cycle_count.create'), (req: AuthenticatedRequest, res) => {

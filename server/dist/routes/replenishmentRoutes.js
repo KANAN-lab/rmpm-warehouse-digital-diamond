@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const replenishmentController_js_1 = require("../controllers/replenishmentController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/check-triggers', auth_js_1.authenticateJwt, replenishmentController_js_1.checkReplenishmentTriggers);
+router.get('/tasks', auth_js_1.authenticateJwt, replenishmentController_js_1.getReplenishmentTasks);
+router.post('/confirm', auth_js_1.authenticateJwt, replenishmentController_js_1.confirmReplenishment);
+exports.default = router;

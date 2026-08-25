@@ -97,6 +97,7 @@ const syncRoutes_js_1 = __importDefault(require("./routes/syncRoutes.js"));
 const layout3dRoutes_js_1 = __importDefault(require("./routes/layout3dRoutes.js"));
 const designerRoutes_js_1 = __importDefault(require("./routes/designerRoutes.js"));
 const pickingRoutes_js_1 = __importDefault(require("./routes/pickingRoutes.js"));
+const replenishmentRoutes_js_1 = __importDefault(require("./routes/replenishmentRoutes.js"));
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes_js_1.default);
 // Location Hierarchy Routes
@@ -115,6 +116,8 @@ app.use('/api/v1/3d', layout3dRoutes_js_1.default);
 app.use('/api/v1/3d/designer', designerRoutes_js_1.default);
 // Picking Engine Routes
 app.use('/api/v1/picking', pickingRoutes_js_1.default);
+// Replenishment Engine Routes
+app.use('/api/v1/replenishment', replenishmentRoutes_js_1.default);
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.create'), (req, res) => {
     (0, errorResponder_js_1.sendSuccessResponse)(req, res, {
