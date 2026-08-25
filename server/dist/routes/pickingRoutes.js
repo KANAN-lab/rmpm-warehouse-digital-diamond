@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const pickingController_js_1 = require("../controllers/pickingController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/allocate', auth_js_1.authenticateJwt, pickingController_js_1.allocateStockPreview);
+router.post('/create-list', auth_js_1.authenticateJwt, pickingController_js_1.createPickList);
+router.get('/list/:pickListId', auth_js_1.authenticateJwt, pickingController_js_1.getPickListDetails);
+router.post('/confirm', auth_js_1.authenticateJwt, pickingController_js_1.confirmPicking);
+exports.default = router;

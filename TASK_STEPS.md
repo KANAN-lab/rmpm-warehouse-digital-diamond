@@ -105,26 +105,26 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 8: 3D DIGITAL TWIN ENGINE (THREE.JS)
-- [ ] 8.1 Setup Canvas Three.js WebGL rendering engine dengan dukungan Orbit, Pan, Zoom, Perspective & Orthographic view.
-- [ ] 8.2 Implementasi Pemetaan Direct 1-to-1 antara objek 3D (`OBJ-RACK-A01`) dan entitas database (`RACK-A01`).
-- [ ] 8.3 Implementasi optimasi rendering menggunakan `InstancedMesh`, Frustum Culling, dan LOD untuk ribuan bin.
-- [ ] 8.4 Implementasi 3D Camera Presets (Top View, Front View, Side View, Custom Presets).
+- [x] 8.1 Setup Canvas Three.js WebGL rendering engine dengan dukungan Orbit, Pan, Zoom, Perspective & Orthographic view.
+- [x] 8.2 Implementasi Pemetaan Direct 1-to-1 antara objek 3D (`OBJ-RACK-A01`) dan entitas database (`RACK-A01`).
+- [x] 8.3 Implementasi optimasi rendering menggunakan `InstancedMesh`, Frustum Culling, dan LOD untuk ribuan bin.
+- [x] 8.4 Implementasi 3D Camera Presets (Top View, Front View, Side View, Custom Presets).
 
 ---
 
 ## PHASE 9: 3D LAYOUT DESIGNER & PARAMETRIC GENERATOR
-- [ ] 9.1 Buat Parametric Rack Generator Engine (Input: Width, Depth, Height, Levels, Bins/Level $\rightarrow$ Generasi otomatis struktur 3D & Barcode Bins).
-- [ ] 9.2 Implementasi Mode Designer 3D: Add Rack, Bin, Zone, Aisle, Wall, Door, Dock, Column.
-- [ ] 9.3 Implementasi Transform Controls (Gizmo Move, Rotate, Scale, Snap to Grid, Snap to Object, Group/Ungroup, Align, Distribute).
-- [ ] 9.4 Buat Panel Properti Numerik (Posisi X/Y/Z, Rotasi X/Y/Z, Dimensi P/L/T).
-- [ ] 9.5 Implementasi Siklus Layout Versioning (`DRAFT`, `PUBLISHED`, `ARCHIVED`).
+- [x] 9.1 Buat Parametric Rack Generator Engine (Input: Width, Depth, Height, Levels, Bins/Level $\rightarrow$ Generasi otomatis struktur 3D & Barcode Bins).
+- [x] 9.2 Implementasi Mode Designer 3D: Add Rack, Bin, Zone, Aisle, Wall, Door, Dock, Column.
+- [x] 9.3 Implementasi Transform Controls (Gizmo Move, Rotate, Scale, Snap to Grid, Snap to Object, Group/Ungroup, Align, Distribute).
+- [x] 9.4 Buat Panel Properti Numerik (Posisi X/Y/Z, Rotasi X/Y/Z, Dimensi P/L/T).
+- [x] 9.5 Implementasi Siklus Layout Versioning (`DRAFT`, `PUBLISHED`, `ARCHIVED`).
 
 ---
 
 ## PHASE 10: PICKING MODULE
-- [ ] 10.1 Implementasi Alokasi Stok Otomatis berdasarkan strategi FIFO / FEFO.
-- [ ] 10.2 Buat alur pembuatan Pick List & optimasi urutan rute pengambilan barang (*Pick Route*).
-- [ ] 10.3 Buat UI PDA Execution Picking & Konfirmasi Scan Bin / Material.
+- [x] 10.1 Implementasi Alokasi Stok Otomatis berdasarkan strategi FIFO / FEFO.
+- [x] 10.2 Buat alur pembuatan Pick List & optimasi urutan rute pengambilan barang (*Pick Route*).
+- [x] 10.3 Buat UI PDA Execution Picking & Konfirmasi Scan Bin / Material.
 
 ---
 

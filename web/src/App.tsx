@@ -6,31 +6,19 @@ import {
   QrCode, 
   ShieldCheck, 
   Activity, 
-  CheckCircle2, 
   Database, 
   Cpu, 
   Search,
   Sliders,
   Maximize2
 } from 'lucide-react';
+import ThreeDigitalTwinCanvas from './components/ThreeDigitalTwinCanvas';
+import PdaMobileInterface from './components/PdaMobileInterface';
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'3d' | 'blind-so' | 'master' | 'audit'>('3d');
   const [selectedLayer, setSelectedLayer] = useState<string>('Inventory Density');
-  
-  // Blind SO Demo Form State (MUTLAK: Hiding System Qty)
-  const [physicalQty, setPhysicalQty] = useState<string>('');
-  const [scannedMid, setScannedMid] = useState<string>('');
-  const [submittedStatus, setSubmittedStatus] = useState<string | null>(null);
-
-  const handleBlindCountSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!physicalQty || !scannedMid) return;
-    
-    setSubmittedStatus(`BERHASIL: Entry Blind SO disimpan secara imutabel! (Physical Qty: ${physicalQty} KG, MID: ${scannedMid}). System Qty & Selisih tetap tersembunyi untuk counter.`);
-    setPhysicalQty('');
-    setScannedMid('');
-  };
+  const [selectedLocationFrom3D, setSelectedLocationFrom3D] = useState<string | null>(null);
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#0a0e17' }}>
@@ -120,6 +108,11 @@ export const App: React.FC = () => {
                   <span className="badge badge-cyan" style={{ fontSize: '0.8125rem' }}>
                     <Layers size={14} /> {selectedLayer}
                   </span>
+                  {selectedLocationFrom3D && (
+                    <span className="badge badge-warning">
+                      Selected: {selectedLocationFrom3D}
+                    </span>
+                  )}
                 </div>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <button className="btn btn-secondary" style={{ padding: '6px 12px' }}>
@@ -134,172 +127,19 @@ export const App: React.FC = () => {
                 </div>
               </div>
 
-              {/* 3D Canvas Container Placeholder */}
-              <div style={{ 
-                flex: 1, 
-                minHeight: '480px', 
-                borderRadius: '8px', 
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                background: 'radial-gradient(circle at center, #1e293b 0%, #0f172a 100%)',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden'
-              }}>
-                {/* Simulated 3D Warehouse Rack Objects */}
-                <div style={{ 
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(4, 1fr)', 
-                  gap: '24px', 
-                  width: '80%', 
-                  padding: '32px',
-                  background: 'rgba(0, 0, 0, 0.2)',
-                  borderRadius: '12px',
-                  border: '1px dashed rgba(6, 182, 212, 0.3)'
-                }}>
-                  {['RACK-A01', 'RACK-A02', 'RACK-B01', 'RACK-B02'].map((rack) => (
-                    <div 
-                      key={rack} 
-                      style={{ 
-                        height: '180px', 
-                        borderRadius: '8px', 
-                        background: 'linear-gradient(180deg, rgba(6, 182, 212, 0.15) 0%, rgba(59, 130, 246, 0.05) 100%)',
-                        border: '1px solid rgba(6, 182, 212, 0.4)',
-                        padding: '12px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8' }}>{rack}</span>
-                        <span className="badge badge-success" style={{ fontSize: '0.65rem' }}>LIVE</span>
-                      </div>
-                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '6px' }}>
-                        <div style={{ background: '#10b981', height: '24px', borderRadius: '4px', opacity: 0.8 }} title="Bin 01: Available" />
-                        <div style={{ background: '#3b82f6', height: '24px', borderRadius: '4px', opacity: 0.8 }} title="Bin 02: Allocated" />
-                        <div style={{ background: '#f59e0b', height: '24px', borderRadius: '4px', opacity: 0.8 }} title="Bin 03: Variance" />
-                        <div style={{ background: '#ef4444', height: '24px', borderRadius: '4px', opacity: 0.8 }} title="Bin 04: Wrong Location" />
-                      </div>
-                      <span style={{ fontSize: '0.7rem', color: '#94a3b8', textAlign: 'center' }}>4 Levels / 16 Bins</span>
-                    </div>
-                  ))}
-                </div>
-                <p style={{ marginTop: '20px', color: '#94a3b8', fontSize: '0.875rem' }}>
-                  Three.js WebGL Interactive Canvas Instance (Single Source of Truth: Database Ledger)
-                </p>
+              {/* Three.js WebGL Interactive Canvas */}
+              <div style={{ flex: 1, minHeight: '480px', position: 'relative' }}>
+                <ThreeDigitalTwinCanvas 
+                  activeLayer={selectedLayer}
+                  onObjectSelect={(code) => setSelectedLocationFrom3D(code)}
+                />
               </div>
             </>
           )}
 
           {activeTab === 'blind-so' && (
-            <div style={{ maxWidth: '540px', margin: '0 auto', width: '100%' }}>
-              <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-                <span className="badge badge-cyan" style={{ marginBottom: '8px' }}>PDA MOBILE INTERFACE</span>
-                <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>BLIND CYCLE COUNT ENTRY</h2>
-                <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
-                  Petugas Counter **TIDAK DAPAT SEE** System Qty, Expected Qty, atau Selisih.
-                </p>
-              </div>
-
-              {submittedStatus && (
-                <div style={{ 
-                  padding: '14px', 
-                  borderRadius: '8px', 
-                  backgroundColor: 'rgba(16, 185, 129, 0.15)', 
-                  border: '1px solid rgba(16, 185, 129, 0.4)',
-                  color: '#34d399',
-                  fontSize: '0.875rem',
-                  marginBottom: '20px',
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: '10px'
-                }}>
-                  <CheckCircle2 size={18} style={{ flexShrink: 0, marginTop: '2px' }} />
-                  <div>{submittedStatus}</div>
-                </div>
-              )}
-
-              <form onSubmit={handleBlindCountSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8125rem', color: '#94a3b8', marginBottom: '6px' }}>
-                    TARGET LOCATION BARCODE
-                  </label>
-                  <input 
-                    type="text" 
-                    value="A01-R03-L02-B04" 
-                    disabled 
-                    style={{ 
-                      width: '100%', 
-                      padding: '12px', 
-                      borderRadius: '8px', 
-                      border: '1px solid rgba(255, 255, 255, 0.1)', 
-                      backgroundColor: 'rgba(0, 0, 0, 0.4)',
-                      color: '#f8fafc',
-                      fontSize: '1rem',
-                      fontWeight: 600
-                    }} 
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8125rem', color: '#94a3b8', marginBottom: '6px' }}>
-                    SCAN MID / BARCODE MATERIAL *
-                  </label>
-                  <input 
-                    type="text" 
-                    placeholder="Contoh: MID-2026-994821" 
-                    value={scannedMid}
-                    onChange={(e) => setScannedMid(e.target.value)}
-                    required
-                    style={{ 
-                      width: '100%', 
-                      padding: '12px', 
-                      borderRadius: '8px', 
-                      border: '1px solid rgba(6, 182, 212, 0.4)', 
-                      backgroundColor: 'rgba(18, 24, 36, 0.9)',
-                      color: '#f8fafc',
-                      fontSize: '1rem'
-                    }} 
-                  />
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.8125rem', color: '#94a3b8', marginBottom: '6px' }}>
-                    PHYSICAL QUANTITY ENTRY * (KG)
-                  </label>
-                  <input 
-                    type="number" 
-                    placeholder="Masukkan jumlah hasil hitung fisik murni..." 
-                    value={physicalQty}
-                    onChange={(e) => setPhysicalQty(e.target.value)}
-                    required
-                    step="0.01"
-                    style={{ 
-                      width: '100%', 
-                      padding: '12px', 
-                      borderRadius: '8px', 
-                      border: '1px solid rgba(6, 182, 212, 0.4)', 
-                      backgroundColor: 'rgba(18, 24, 36, 0.9)',
-                      color: '#f8fafc',
-                      fontSize: '1.25rem',
-                      fontWeight: 700
-                    }} 
-                  />
-                </div>
-
-                <div style={{ display: 'flex', gap: '12px', marginTop: '12px' }}>
-                  <button type="submit" className="btn btn-primary" style={{ flex: 1, padding: '14px' }}>
-                    <CheckCircle2 size={18} /> CONFIRM ENTRY (BLIND)
-                  </button>
-                  <button type="button" className="btn btn-secondary" style={{ padding: '14px' }}>
-                    LOCATION EMPTY
-                  </button>
-                </div>
-              </form>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <PdaMobileInterface />
             </div>
           )}
 
