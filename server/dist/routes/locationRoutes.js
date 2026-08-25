@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const locationController_js_1 = require("../controllers/locationController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.get('/tree', auth_js_1.authenticateJwt, locationController_js_1.getLocationTree);
+router.get('/path/:idOrCode', auth_js_1.authenticateJwt, locationController_js_1.getLocationPath);
+router.post('/generate-codes', auth_js_1.authenticateJwt, locationController_js_1.generateCodesForLocation);
+router.post('/validate-capacity', auth_js_1.authenticateJwt, locationController_js_1.checkLocationCapacityValidation);
+exports.default = router;

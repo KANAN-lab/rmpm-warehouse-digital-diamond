@@ -62,10 +62,10 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 3: DYNAMIC LOCATION HIERARCHY ENGINE
-- [ ] 3.1 Implementasi model hirarki lokasi rekursif (`parent_location_id`).
-- [ ] 3.2 Implementasi API pembacaan struktur lokasi (Tree view & path lookup).
-- [ ] 3.3 Buat generator Barcode & QR Code otomatis untuk setiap level lokasi (Bin, Rack, Zone).
-- [ ] 3.4 Implementasi validasi atribut lokasi (Kapasitas berat, volume, jenis penyimpanan, status aktif).
+- [x] 3.1 Implementasi model hirarki lokasi rekursif (`parent_location_id`).
+- [x] 3.2 Implementasi API pembacaan struktur lokasi (Tree view & path lookup).
+- [x] 3.3 Buat generator Barcode & QR Code otomatis untuk setiap level lokasi (Bin, Rack, Zone).
+- [x] 3.4 Implementasi validasi atribut lokasi (Kapasitas berat, volume, jenis penyimpanan, status aktif).
 
 ---
 

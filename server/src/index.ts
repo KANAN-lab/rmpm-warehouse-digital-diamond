@@ -95,9 +95,13 @@ app.post('/api/v1/auth/login', (req: AuthenticatedRequest, res) => {
 });
 
 import masterDataRoutes from './routes/masterDataRoutes.js';
+import locationRoutes from './routes/locationRoutes.js';
 
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes);
+
+// Location Hierarchy Routes
+app.use('/api/v1/locations', locationRoutes);
 
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', authenticateJwt, requirePermission('cycle_count.create'), (req: AuthenticatedRequest, res) => {
