@@ -42,22 +42,22 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 1: SYSTEM CORE & SHARED ARCHITECTURE
-- [ ] 1.1 Inisialisasi struktur project Modular Monolith (Backend Service API & Web Frontend).
-- [ ] 1.2 Setup utilitas Logging, Correlation ID Middleware, & Standard Error Responder (menggunakan pesan ramah operasional).
-- [ ] 1.3 Implementasi sistem otentikasi JWT / Session & Device Registry (`device_id`, `pda_mac`, `user_id`).
-- [ ] 1.4 Implementasi Middleware Role-Based Access Control (RBAC) dengan granular permission checker.
+- [x] 1.1 Inisialisasi struktur project Modular Monolith (Backend Service API & Web Frontend).
+- [x] 1.2 Setup utilitas Logging, Correlation ID Middleware, & Standard Error Responder (menggunakan pesan ramah operasional).
+- [x] 1.3 Implementasi sistem otentikasi JWT / Session & Device Registry (`device_id`, `pda_mac`, `user_id`).
+- [x] 1.4 Implementasi Middleware Role-Based Access Control (RBAC) dengan granular permission checker.
 
 ---
 
 ## PHASE 2: DATABASE SCHEMA & MASTER DATA MODULES
-- [ ] 2.1 Buat migrasi DDL database untuk 5 Kelompok Master Data:
+- [x] 2.1 Buat migrasi DDL database untuk 5 Kelompok Master Data:
   - Physical Warehouse (`warehouses`, `zones`, `areas`, `lanes`, `lines`, `racks`, `levels`, `bins`, `storage_types`, `staging_areas`, `quarantine_areas`, `docks`, `doors`, `aisles`, `floors`, `rooms`, `temp_zones`, `hazard_zones`).
   - Inventory Master (`materials`, `material_categories`, `material_groups`, `material_types`, `batches`, `mids`, `pallets`, `containers`, `uoms`, `uom_conversions`, `packaging_configs`, `dimensions`).
   - Operation Master (`rules_putaway`, `rules_picking`, `rules_replenishment`, `rules_cycle_count`, `rules_aging`, `rules_tolerance`, `rules_approval`, `rules_exception`).
   - Security Master (`users`, `roles`, `permissions`, `role_permissions`, `user_roles`, `departments`, `warehouse_assignments`, `devices`, `sessions`).
   - 3D Master (`layout3d_objects`, `layout3d_templates`, `layout3d_versions`, `camera_presets`, `view_layers`, `display_rules`).
-- [ ] 2.2 Buat API CRUD untuk seluruh Master Data dengan fitur List, Search, Filter, Sort, Soft-Delete (`ACTIVE`/`INACTIVE`/`ARCHIVED`), Import/Export CSV/Excel dengan Staging Validation Table.
-- [ ] 2.3 Buat Seeder Data (*Seed Data*) realitis (1 Warehouse, 3 Zones, Racks, Bins, Materials, Batches, MIDs, Pallets).
+- [x] 2.2 Buat API CRUD untuk seluruh Master Data dengan fitur List, Search, Filter, Sort, Soft-Delete (`ACTIVE`/`INACTIVE`/`ARCHIVED`), Import/Export CSV/Excel dengan Staging Validation Table.
+- [x] 2.3 Buat Seeder Data (*Seed Data*) realitis (1 Warehouse, 3 Zones, Racks, Bins, Materials, Batches, MIDs, Pallets).
 
 ---
 
