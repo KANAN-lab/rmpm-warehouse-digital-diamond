@@ -16,3 +16,5 @@
    - *Keputusan*: Variansi selisih opname fisik di bawah 1% disetujui oleh Supervisor; variansi di atas 1% memerlukan persetujuan Warehouse Manager.
 5. **[BD-005] Imutabilitas Ledger Transaksi**:
    - *Keputusan*: Tabel `inventory_transactions` bersifat *append-only*. Dilarang keras melakukan SQL `UPDATE` atau `DELETE` pada riwayat transaksi. Koreksi kesalahan dilakukan melalui transaksi pembalik/penyesuaian baru.
+6. **[BD-006] Stack Frontend Web Application**:
+   - *Keputusan*: Menggunakan Web Application berbasis **Vite + React + Three.js (WebGL/WebGPU)** untuk Control Tower 3D Desktop dan **PWA (Progressive Web App)** untuk antarmuka PDA Mobile. Pilihan ini menjamin performa render 3D tinggi (60 FPS), pengoperasian offline di perangkat PDA scanner, serta antarmuka web modern yang responsif.
