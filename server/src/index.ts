@@ -96,12 +96,28 @@ app.post('/api/v1/auth/login', (req: AuthenticatedRequest, res) => {
 
 import masterDataRoutes from './routes/masterDataRoutes.js';
 import locationRoutes from './routes/locationRoutes.js';
+import inventoryRoutes from './routes/inventoryRoutes.js';
+import transactionRoutes from './routes/transactionRoutes.js';
+import cycleCountRoutes from './routes/cycleCountRoutes.js';
+import syncRoutes from './routes/syncRoutes.js';
 
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes);
 
 // Location Hierarchy Routes
 app.use('/api/v1/locations', locationRoutes);
+
+// Inventory Engine Routes
+app.use('/api/v1/inventory', inventoryRoutes);
+
+// Immutable Transaction Ledger Routes
+app.use('/api/v1/transactions', transactionRoutes);
+
+// Blind Cycle Count Engine Routes
+app.use('/api/v1/cycle-count', cycleCountRoutes);
+
+// Offline PDA Sync Routes
+app.use('/api/v1/sync', syncRoutes);
 
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', authenticateJwt, requirePermission('cycle_count.create'), (req: AuthenticatedRequest, res) => {

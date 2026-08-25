@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const cycleCountController_js_1 = require("../controllers/cycleCountController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/orders', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.create'), cycleCountController_js_1.createOrder);
+router.get('/blind-task/:taskId', auth_js_1.authenticateJwt, cycleCountController_js_1.getBlindTask);
+router.post('/entries', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.count'), cycleCountController_js_1.recordPhysicalEntry);
+router.get('/reconciliation/:orderId', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.view_variance'), cycleCountController_js_1.getReconciliationReport);
+router.post('/recount', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.create'), cycleCountController_js_1.requestRecount);
+exports.default = router;

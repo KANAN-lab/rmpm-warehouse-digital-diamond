@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const inventoryController_js_1 = require("../controllers/inventoryController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.get('/search', auth_js_1.authenticateJwt, inventoryController_js_1.getInventoryBalances);
+router.get('/mid/:midCode', auth_js_1.authenticateJwt, inventoryController_js_1.getMidDetails);
+router.post('/transition-status', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('master_data.edit'), inventoryController_js_1.executeStatusTransition);
+exports.default = router;

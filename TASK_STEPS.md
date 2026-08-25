@@ -70,37 +70,37 @@ Dokumen ini berisi daftar tugas detail langkah demi langkah (*step-by-step*) dar
 ---
 
 ## PHASE 4: INVENTORY STATE ENGINE
-- [ ] 4.1 Buat tabel `inventory_balances` (Current Stock State) yang memuat `material_id`, `batch_id`, `mid_code`, `pallet_id`, `location_id`, `quantity`, `uom_id`, `status`.
-- [ ] 4.2 Implementasi State Machine Transisi Status Inventaris (`AVAILABLE`, `BLOCKED`, `QUARANTINE`, `DAMAGED`, `EXPIRED`, `HOLD`, `ALLOCATED`, `PICKED`, `STAGED`, `IN_TRANSIT`, `UNKNOWN`).
-- [ ] 4.3 Implementasi API pencarian stok berdasarkan MID, Material, Batch, Palet, dan Lokasi.
+- [x] 4.1 Buat tabel `inventory_balances` (Current Stock State) yang memuat `material_id`, `batch_id`, `mid_code`, `pallet_id`, `location_id`, `quantity`, `uom_id`, `status`.
+- [x] 4.2 Implementasi State Machine Transisi Status Inventaris (`AVAILABLE`, `BLOCKED`, `QUARANTINE`, `DAMAGED`, `EXPIRED`, `HOLD`, `ALLOCATED`, `PICKED`, `STAGED`, `IN_TRANSIT`, `UNKNOWN`).
+- [x] 4.3 Implementasi API pencarian stok berdasarkan MID, Material, Batch, Palet, dan Lokasi.
 
 ---
 
 ## PHASE 5: IMMUTABLE TRANSACTION ENGINE & EVENT BUS
-- [ ] 5.1 Buat tabel `inventory_transactions` (**Append-Only Ledger**, Dilarang UPDATE/DELETE).
-- [ ] 5.2 Implementasi Transaction Engine untuk 16 jenis transaksi: `RECEIVING`, `PUTAWAY`, `PICKING`, `BATCHING`, `REPLENISHMENT`, `BIN_TO_BIN`, `TRANSFER`, `RETURN`, `ADJUSTMENT`, `CYCLE_COUNT`, `STAGED`, `DISPATCH`, `HOLD`, `RELEASE`, `DAMAGE`, `SCRAP`.
-- [ ] 5.3 Implementasi Jurnal Pembalik / Transaksi Penyesuaian untuk koreksi transaksi lama.
-- [ ] 5.4 Implementasi Event Bus internal untuk memublikasikan 16 Domain Events (`InventoryMoved`, `CycleCountStarted`, dll).
+- [x] 5.1 Buat tabel `inventory_transactions` (**Append-Only Ledger**, Dilarang UPDATE/DELETE).
+- [x] 5.2 Implementasi Transaction Engine untuk 16 jenis transaksi: `RECEIVING`, `PUTAWAY`, `PICKING`, `BATCHING`, `REPLENISHMENT`, `BIN_TO_BIN`, `TRANSFER`, `RETURN`, `ADJUSTMENT`, `CYCLE_COUNT`, `STAGED`, `DISPATCH`, `HOLD`, `RELEASE`, `DAMAGE`, `SCRAP`.
+- [x] 5.3 Implementasi Jurnal Pembalik / Transaksi Penyesuaian untuk koreksi transaksi lama.
+- [x] 5.4 Implementasi Event Bus internal untuk memublikasikan 16 Domain Events (`InventoryMoved`, `CycleCountStarted`, dll).
 
 ---
 
 ## PHASE 6: BLIND CYCLE COUNT CORE ENGINE & RECONCILIATION
-- [ ] 6.1 Implementasi pembuatan Order & Task Cycle Count dalam 11 Mode Hitung (Rack, Zone, Area, Bin, MID, Pallet, Material, Batch, dll).
-- [ ] 6.2 Implementasi pembuatan `Inventory Snapshot` otomatis pada detik permulaan Cycle Count.
-- [ ] 6.3 Implementasi penguncian informasi pada API Blind Counter: Mutlak menyembunyikan *System Quantity*, *Expected Quantity*, *Variance*, dan *Previous Count*.
-- [ ] 6.4 Implementasi event listener `COUNT_IMPACT_EVENT` saat terjadi pergerakan stok (Picking/Putaway) di lokasi yang sedang dihitung pada gudang LIVE.
-- [ ] 6.5 Implementasi Engine Rekonsiliasi Dinamis (Menghitung ekspektasi stok berdasarkan Snapshot + Impact Events).
-- [ ] 6.6 Implementasi alokasi Tugas Recount Independen (Counter B) yang bersifat imutabel.
-- [ ] 6.7 Implementasi Workflow Approval penyesuaian stok bertingkat berdasarkan toleransi selisih.
+- [x] 6.1 Implementasi pembuatan Order & Task Cycle Count dalam 11 Mode Hitung (Rack, Zone, Area, Bin, MID, Pallet, Material, Batch, dll).
+- [x] 6.2 Implementasi pembuatan `Inventory Snapshot` otomatis pada detik permulaan Cycle Count.
+- [x] 6.3 Implementasi penguncian informasi pada API Blind Counter: Mutlak menyembunyikan *System Quantity*, *Expected Quantity*, *Variance*, dan *Previous Count*.
+- [x] 6.4 Implementasi event listener `COUNT_IMPACT_EVENT` saat terjadi pergerakan stok (Picking/Putaway) di lokasi yang sedang dihitung pada gudang LIVE.
+- [x] 6.5 Implementasi Engine Rekonsiliasi Dinamis (Menghitung ekspektasi stok berdasarkan Snapshot + Impact Events).
+- [x] 6.6 Implementasi alokasi Tugas Recount Independen (Counter B) yang bersifat imutabel.
+- [x] 6.7 Implementasi Workflow Approval penyesuaian stok bertingkat berdasarkan toleransi selisih.
 
 ---
 
 ## PHASE 7: PDA MOBILE INTERFACE & OFFLINE SYNC
-- [ ] 7.1 Buat UI Web Responsive / PWA khusus PDA Scanner dengan komponen layar sentuh besar dan input ramah sarung tangan.
-- [ ] 7.2 Implementasi fitur Scan Barcode & Manual Data Entry (Wajib mencatat flag `SCAN` vs `MANUAL`).
-- [ ] 7.3 Implementasi Layar Blind Counter PDA (Tanpa System Qty, Tanpa Variance, Tombol Confirm & Location Empty).
-- [ ] 7.4 Implementasi Local SQLite / IndexedDB Queue pada PDA untuk pengoperasian offline.
-- [ ] 7.5 Implementasi Sync Queue Engine & Deteksi Konflik Sinkronisasi (`SYNC_CONFLICT`) dengan antarmuka resolusi konflik untuk Supervisor.
+- [x] 7.1 Buat UI Web Responsive / PWA khusus PDA Scanner dengan komponen layar sentuh besar dan input ramah sarung tangan.
+- [x] 7.2 Implementasi fitur Scan Barcode & Manual Data Entry (Wajib mencatat flag `SCAN` vs `MANUAL`).
+- [x] 7.3 Implementasi Layar Blind Counter PDA (Tanpa System Qty, Tanpa Variance, Tombol Confirm & Location Empty).
+- [x] 7.4 Implementasi Local SQLite / IndexedDB Queue pada PDA untuk pengoperasian offline.
+- [x] 7.5 Implementasi Sync Queue Engine & Deteksi Konflik Sinkronisasi (`SYNC_CONFLICT`) dengan antarmuka resolusi konflik untuk Supervisor.
 
 ---
 

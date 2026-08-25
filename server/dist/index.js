@@ -90,10 +90,22 @@ app.post('/api/v1/auth/login', (req, res) => {
 });
 const masterDataRoutes_js_1 = __importDefault(require("./routes/masterDataRoutes.js"));
 const locationRoutes_js_1 = __importDefault(require("./routes/locationRoutes.js"));
+const inventoryRoutes_js_1 = __importDefault(require("./routes/inventoryRoutes.js"));
+const transactionRoutes_js_1 = __importDefault(require("./routes/transactionRoutes.js"));
+const cycleCountRoutes_js_1 = __importDefault(require("./routes/cycleCountRoutes.js"));
+const syncRoutes_js_1 = __importDefault(require("./routes/syncRoutes.js"));
 // Master Data Routes
 app.use('/api/v1/master-data', masterDataRoutes_js_1.default);
 // Location Hierarchy Routes
 app.use('/api/v1/locations', locationRoutes_js_1.default);
+// Inventory Engine Routes
+app.use('/api/v1/inventory', inventoryRoutes_js_1.default);
+// Immutable Transaction Ledger Routes
+app.use('/api/v1/transactions', transactionRoutes_js_1.default);
+// Blind Cycle Count Engine Routes
+app.use('/api/v1/cycle-count', cycleCountRoutes_js_1.default);
+// Offline PDA Sync Routes
+app.use('/api/v1/sync', syncRoutes_js_1.default);
 // Protected Example Verification Endpoint
 app.get('/api/v1/cycle-count/protected-test', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.create'), (req, res) => {
     (0, errorResponder_js_1.sendSuccessResponse)(req, res, {

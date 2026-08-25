@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const syncController_js_1 = require("../controllers/syncController.js");
+const auth_js_1 = require("../middleware/auth.js");
+const router = (0, express_1.Router)();
+router.post('/pda-queue', auth_js_1.authenticateJwt, syncController_js_1.syncPdaQueue);
+router.get('/conflicts', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.approve'), syncController_js_1.getSyncConflicts);
+router.post('/resolve-conflict', auth_js_1.authenticateJwt, (0, auth_js_1.requirePermission)('cycle_count.approve'), syncController_js_1.executeConflictResolution);
+exports.default = router;
